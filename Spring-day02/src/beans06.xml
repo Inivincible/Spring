@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="programmer" class="com.cn.service.model.Programmer">
+        <property name="cars">
+            <!--List数据注入-->
+            <list>
+                <value>ofo</value>
+                <value>正 柏</value>
+                <value>宝 马</value>
+            </list>
+        </property>
+        <!--Set数据注入-->
+        <property name="pats">
+            <set>
+                <value>阿 里</value>
+                <value>淘 宝</value>
+                <value>京 东</value>
+            </set>
+        </property>
+        <!--Map数据注入-->
+        <property name="infos">
+            <map>
+                <entry key="name" value="张 三"/>
+                <entry key="age" value="18"/>
+                <entry key="sex" value="男"/>
+            </map>
+        </property>
+        <!--Properties数据注入-->
+        <property name="myInfos">
+            <props>
+                <prop key="url">mysql:jdbc://localhost:3306/test</prop>
+                <prop key="user">root</prop>
+                <prop key="password">admin</prop>
+            </props>
+        </property>
+        <!--数组数据注入-->
+        <property name="members">
+            <array>
+                <value>安徽</value>
+                <value>上海</value>
+                <value>合肥</value>
+            </array>
+        </property>
+    </bean>
+</beans>

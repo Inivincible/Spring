@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!--构造方法注入属性的值-->
+    <bean id="student01" class="com.cn.service.model.Student">
+        <constructor-arg type="java.lang.String" value="张三"/>
+        <constructor-arg type="java.lang.String" value="123"/>
+    </bean>
+
+    <!--通过索引给对象属性赋值-->
+    <bean id="student02" class="com.cn.service.model.Student">
+        <constructor-arg type="java.lang.String" value="123"/>
+        <constructor-arg type="int" value="123"/>
+    </bean>
+
+    <!--通过调用set方法给属性赋值-->
+    <bean id="student03" class="com.cn.service.model.Student">
+        <property name="userName" value="张三"/>
+        <property name="passWord" value="252"/>
+        <property name="age" value="13"/>
+    </bean>
+    <!--通过p命名空间注入-->
+    <bean id="student04" class="com.cn.service.model.Student" p:userName="张三" p:passWord="123" p:age="50"/>
+</beans>

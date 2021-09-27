@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
+<!--不用注解-->
+<!--   1. 配置dao-->
+<bean id="userDao" class="com.cn.dao.impl.UserDaoImpl"/>
+
+<!--    2.配置service-->
+<bean id="userService" class="com.cn.service.impl.UserServiceImpl">
+    <property name="userDao" ref="userDao"/>
+</bean>
+<!--    3.配置action-->
+<bean id="userAction" class="com.cn.web.action.UserAction">
+    <property name="userService" ref="userService"/>
+</bean>
+</beans>

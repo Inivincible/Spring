@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置一个bean（对象）-->
+    <!--第一种方式:new实现类-->
+    <bean id="userService01" class="com.cn.service.impl.UserServiceImpl">
+        <!--依赖注入（调用set方法）-->
+        <property name="name" value="张三"/>
+        <property name="age" value="18"/>
+    </bean>
+    <!--第二种：通过静态工厂方法-->
+    <bean id="userService02" class="com.cn.service.factory.UserServiceFactory01" factory-method="userService"/>
+    <!--第二种：通过实例工厂方法-->
+    <bean id="factory" class="com.cn.service.factory.UserServiceFactory02" scope="prototype"/>
+    <bean id="userService03" factory-bean="factory" factory-method="userService" scope="prototype"/>
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="address" class="com.cn.service.model.Address">
+        <property name="name" value="#{'上海正柏软件有限公司'}"/>
+    </bean>
+    <bean id="customer" class="com.cn.service.model.Customer">
+        <property name="name" value="#{address.name}"/>
+        <!--调用静态方法-->
+        <property name="pi" value="#{T(Math).PI}"/>
+        <!--ref引用
+        <property name="address" ref="address"/>
+        -->
+        <property name="address" value="#{address}"/>
+
+    </bean>
+</beans>
